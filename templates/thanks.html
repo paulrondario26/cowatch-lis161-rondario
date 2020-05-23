@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+Resources used to create this website:<br>
+BLK Design System, open source, free, for Bootstrap 4, with CSS stylesheets, and JS scripts from Creative Tim. https://www.creative-tim.com/product/blk-design-system</br>
+animations like hvr.grow from codepen.io, Hover.css from Ian Lunn. https://ianlunn.co.uk/store/hover-css/<br>
+images from pngtree, under author SilviaNatalia. https://pngtree.com/silvianatalia_5483677?type=1<br>
+Logo of the University of the Philippines School of Library and Information Sciences used.<br>
+By Eugeryl Paul Z. Rondario for the Class of LIS 161 under Sir PJ Perez
+
+<img class="col-lg-12" src="{{ url_for('static',filename='svgs/logo2.png') }}">
+
+<div class="section">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="text-center col-md-12 col-lg-8">
+              <button class="btn btn-primary btn-round" onclick="goBack()">Go Back
+            </button>
+                <script>
+function goBack() {
+  window.history.back();
+}
+                </script>
+                <!-- script taken from W3Schools, allows the function goBack() to be used in onclick -->
+
+            </div>
+          </div>
+        </div>
+</div>
+
+</body>
+
+
+{% endblock content %}

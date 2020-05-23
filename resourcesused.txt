@@ -1,0 +1,11 @@
+The resources I used for this project:
+
+BLK Design System Angular from creative-tim.com
+Documentation: https://demos.creative-tim.com/blk-design-system-angular/#/documentation/badge
+
+Bootstrap open source toolkit
+Source: https://getbootstrap.com
+
+Sidebar from:
+https://bootstrapious.com/p/bootstrap-sidebar
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- Declaration for browser to expect an html file -->
+<html lang="en">
+<!-- Sets primary language to english -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet">
+    <link href="{{ url_for('static',filename='BLK/assets/css/nucleo-icons.css') }}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static',filename='BLK/assets/css/blk-design-system.css') }}">
+    <!-- head for metadata, and stylesheets used -->
+
+  {% if title %}
+    <title>TUTO WebApp - {{ title }}</title>
+    {% else %}
+    <title>TUTO WebApp</title>
+    {% endif %}
+    <!-- Simple code for default title -->
+
+<style>
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+</style>
+    <!-- Style tag for using class hvr-grow by Ian Lunn-->
+</head>
+<body>
+
+{% block content %}{% endblock %}
+<!-- Allows html to be extended, data will wrap around other html files' data -->
+
+<script type=text/javascript src="{{
+  url_for('static', filename='BLK/assets/js/core/jquery.min.js') }}"></script>
+<script type=text/javascript src="{{
+  url_for('static', filename='BLK/assets/js/core/popper.min.js') }}"></script>
+<script type=text/javascript src="{{
+  url_for('static', filename='BLK/assets/js/core/bootstrap.min.js') }}"></script>
+<script type=text/javascript src="{{
+  url_for('static', filename='BLK/assets/js/core/bootstrap.min.js') }}"></script>
+<script type=text/javascript src="{{
+  url_for('static', filename='BLK/assets/js/blk-design-system.js') }}"></script>
+<!-- Javascript from BLK design system -->
+
+</body>
+</html>

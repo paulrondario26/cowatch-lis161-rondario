@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="site-header">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+        <p class="navbar-translate">
+            <a class="navbar-brand" href=" {{ url_for('hub') }}" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <span>COWATCH。</span> online student tracker
+            </a>
+            <a href="/students" >
+              Return
+            </a>
+         </div>
+
+
+        </div>
+    </div>
+</nav>
+</header>
+<body class="profile-page">
+<img src="{{ url_for('static',filename='BLK/assets/img/path4.png') }}" class="col-lg-11 path">
+
+<center>
+        <div class="container mt-5 pt-5">
+<div style="
+            color: #f6f9fc;
+            font-weight: 800;
+            font-size: 30px;
+            text-transform: uppercase;"> Check the status of a student
+</div>
+        </div>
+</center>
+        <div class="wrapper">
+            <div class="container mt-3 pt-3 col-lg-4">
+                <div class="card card-plain">
+                    <div class="card-body">
+        <form method="post" action="">
+            <input type="text" class="form-control" placeholder="Search" name="student" data-toggle="tooltip" data-placement="bottom" title="Enter full name of student, or student number">
+            <button class="btn btn-primary btn-round float-right" type="submit">Submit
+            </button>
+            <!-- name of form is student, value from student passed into search() as student -->
+        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p></p>
+<div class="card card-plain">
+    <div class="card-body">
+        <center>
+
+        {% for item in data %}
+            <tr>
+                <td> Student Name: {{  item[0]  }} <br>
+                     Student Number: {{  item[1]  }} <br>
+                     Is Student able to work under current conditions?: {{  item[2]  }}
+                </td>
+                <br>
+            </tr>
+        {% endfor %}
+            <!-- Displays data fetched from database, for loop to create a row for each group of data -->
+        </center>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="container mt-2 pt-2">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <img src="{{ url_for('static',filename='svgs/metrics.png') }}" >
+        </div>
+    </div>
+</div>
+    </body>
+
+{% endblock content %}

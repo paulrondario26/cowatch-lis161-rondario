@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="site-header">
+</header>
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href=" {{ url_for('hub') }}" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <span>COWATCH。</span> online student tracker
+            </a>
+            <a href="/hub" >
+              Return
+            </a>
+
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<body class="profile-page">
+<img src="{{ url_for('static',filename='BLK/assets/img/dots.png') }}" class="dots">
+<img src="{{ url_for('static',filename='BLK/assets/img/path1.png') }}" class="path">
+    <div class="wrapper">
+       <div class="table-responsive">
+                      <table class="table tablesorter " id="plain-table">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th class="header">
+                                #
+                            </th>
+                            <th class="header">
+                              Name
+                            </th>
+                            <th class="header">
+                              Email Address
+                            </th>
+                              <th class="header">
+                              Contact Number
+                            </th>
+                              <th class="header">
+                              Additional Information
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for result in results %}
+                        <!-- for loop is used to display values passed to results -->
+                          <tr>
+                            <td>
+                              {{ result[0] }}
+                            </td>
+                            <td>
+                              {{ result[1] }}
+                            </td>
+                              <td>
+                              {{ result[2] }}
+                            </td>
+                              <td>
+                              {{ result[3] }}
+                            </td>
+                              <td>
+                              {{ result[4] }}
+                            </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+       </div>
+    </div>
+</body>
+{% endblock content %}

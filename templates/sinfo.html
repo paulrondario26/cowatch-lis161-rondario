@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="site-header">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+        <p class="navbar-translate">
+            <a class="navbar-brand" href=" {{ url_for('hub') }}" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <span>COWATCH。</span> online student tracker
+            </a>
+         </div>
+
+
+        </div>
+    </div>
+</nav>
+</header>
+<body class="profile-page">
+<img src="{{ url_for('static',filename='BLK/assets/img/path3.png') }}" class="col-lg-11 path">
+
+<div class="wrapper">
+<div class="container mt-5 pt-5">
+<div class="card card-plain">
+<div class="card-body">
+                <form method="post" action="{{ url_for('sinfo') }}">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="hidden" value="{{ result[0] }}" name="id">
+                          <!-- input type is hidden, result[0] or id should not be edited -->
+                        <label>Student Name</label>
+                        <input type="text" class="form-control" value="{{ result[1] }}" name="sname">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Student Number</label>
+                        <input type="text" class="form-control" value="{{ result[2] }}" name="snum">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Are you able to submit academic work under current conditions?</label>
+                        <input type="text" class="form-control" value="{{ result[3] }}" name="work">
+                      </div>
+                    </div>
+                  </div>
+                  <button name="edit" value="update" class="btn btn-primary btn-round float-right" rel="tooltip" data-original-title="Thanks for answering!" data-placement="right">Submit</button>
+                    <button name="edit" value="delete" class="btn btn-danger btn-round float-right">Delete</button>
+                </form>
+                    <!-- the forms are assigned values, placeholder names become values from students table with corresponding edit_id -->
+              </div>
+</div>
+</div>
+</div>
+<div class="wrapper">
+    <div class="container mt-2 pt-2">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <img src="{{ url_for('static',filename='svgs/custom.png') }}" >
+        </div>
+    </div>
+</div>
+</body>
+{% endblock content %}

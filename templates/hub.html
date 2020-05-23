@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- takes data from layout html outside block content code and passes it to hub html -->
+<header class="site-header">
+<!-- Navbar with option to return to log out, and uses session data passed into home_name for the Welcome message -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+      <div class="navbar-translate">
+            <a class="navbar-brand" href=" {{ url_for('hub') }}" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <img style="width: 3%;
+  height: 3%;" src="{{ url_for('static',filename='svgs/logo2.png') }}"><span>  COWATCH。</span> online student tracker
+            </a>
+        <a href="/logout" >
+              Log Out
+            </a>
+
+      </div>
+      <div class="navbar-nav">
+        <div class="row">
+          <p class="col-lg-6" style="
+            font-weight: 800;
+            font-size: 20px;
+            text-transform: uppercase;"> Welcome {{ home_name }} </p>
+          </div>
+      </div>
+      </div>
+            <!-- home_name value from session data is displayed -->
+
+</nav>
+</header>
+<body class="profile-page">
+<div class="wrapper">
+
+    <div class="page-header">
+      <img src="{{ url_for('static',filename='BLK/assets/img/dots.png') }}" class="dots">
+      <img src="{{ url_for('static',filename='BLK/assets/img/path4.png') }}" class="path">
+      <!-- images with classes for style -->
+
+      <div class="container align-items-center">
+
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <!-- col-lg-6 and col-md-6 refers to the space the element makes in relation to the viewport (window size) -->
+            <h1 class="profile-title text-left">Requirements List</h1>
+            <h5 class="text-on-back">01</h5>
+            <p class="profile-description">Browse the list of SLIS Course Requirements for 2nd Semester AY 2019-2020. </p>
+              <br>
+
+              <div class="text-center col-md-12 col-lg-8">
+              <a href="/classes" class="btn btn-primary btn-round btn-lg" role="button">
+                View
+              </a>
+                <!-- Button shows list of classes and requirements -->
+            </div>
+
+          </div>
+          <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+            <div>
+              <img src="{{ url_for('static',filename='svgs/classes.png') }}" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-md-4">
+            <div>
+              <img src="{{ url_for('static',filename='svgs/students.png') }}" >
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h1 class="profile-title text-left">Student List</h1>
+            <h5 class="text-on-back">02</h5>
+            <p class="profile-description text-left">Access and modify the list of students enrolled in the SLIS curriculum.</p>
+            <br>
+
+              <div class="text-center col-md-12 col-lg-8">
+              <a href="/students" class="btn btn-primary btn-round btn-lg" role="button">
+                View
+              </a>
+                <!-- Button shows list of students with edit buttons -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card card-plain">
+              <div class="card-header">
+                <img src="{{ url_for('static',filename='BLK/assets/img/path1.png') }}" class="path">
+
+                <h1 class="profile-title text-left">Contact Details</h1>
+                <h5 class="text-on-back">03</h5>
+              </div>
+              <div class="card-body">
+                <p class="profile-description text-left">For further consultation and assistance, refer to these details.</p>
+            <br>
+
+              <div class="text-center col-md-12 col-lg-8">
+              <a href="/details" class="btn btn-primary btn-round btn-lg" role="button">
+                View
+              </a>
+
+                <a href="/thanks" class="btn btn-success btn-round btn-lg" role="button">
+                Thanks
+                </a>
+            </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ml-auto">
+              <div class="card">
+            <a class="twitter-timeline" data-width="400" data-height="400" data-theme="light" href="https://twitter.com/upslis?ref_src=twsrc%5Etfw">Tweets by upslis</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+              </div>
+            <!-- Embedded twitter feed for updates -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+{% endblock content %}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-- takes data from layout html outside block content code and passes it to add html -->
+<header class="site-header">
+<!-- Navbar with option to return to main page -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+        <p class="navbar-translate">
+            <a class="navbar-brand" href=" {{ url_for('hub') }}" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <span>COWATCH。</span> online student tracker
+            </a>
+            <a href="/students" >
+              Return
+            </a>
+    </div>
+</nav>
+</header>
+<body class="profile-page">
+<img src="{{ url_for('static',filename='BLK/assets/img/path4.png') }}" class="col-lg-11 path">
+<!-- inserts background image the code url_for allows files from the static folder to be used -->
+
+<div class="wrapper">
+<div class="container mt-5 pt-5">
+<div class="card card-plain">
+<div class="card-body">
+    <!-- Formatting -->
+                <form method="POST" action="{{ url_for('add') }}">
+                    <!-- makes the method of the form POST -->
+                    <!-- Class form-group is used for formatting purposes. Names are assigned to the forms; sname, snum, and work -->
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Student Name</label>
+                        <input type="text" class="form-control" name="sname">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Student Number</label>
+                        <input type="text" class="form-control" name="snum">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Are you able to submit academic work under current conditions?</label>
+                        <input type="text" class="form-control" name="work">
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" value="Submit" class="btn btn-primary btn-round float-right">Submit</button>
+                </form>
+</div>
+</div>
+</div>
+</div>
+<div class="wrapper">
+    <div class="container mt-2 pt-2">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <img src="{{ url_for('static',filename='svgs/custom.png') }}" >
+            <!-- insertes img custom.png -->
+        </div>
+    </div>
+</div>
+</body>
+{% endblock content %}

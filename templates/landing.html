@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="site-header">
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href="" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <span>COWATCH。</span> online student tracker
+            </a>
+        </div>
+    </div>
+</nav>
+</header>
+<body class="index-page">
+<div class="container">
+<div class="header-filter">
+      <div class="squares square1"></div>
+      <div class="squares square2"></div>
+      <div class="squares square3"></div>
+      <div class="squares square4"></div>
+      <div class="squares square5"></div>
+      <div class="squares square6"></div>
+      <div class="squares square7"></div>
+</div>
+    <!-- Arrangement of elements taken from BLK Design system for style -->
+<div class="container">
+    <a href="/form">
+        <div class="wrapper mt-5 pt-5 container hvr-grow">
+            <!-- class hvr-grow from layout html, allows words to pop up when cursor is hovering -->
+
+             <p style="
+            font-weight: 800;
+            line-height: 100px;
+            font-size: 120px;
+            text-transform: uppercase;">
+                 <img style="width: 10%;
+  height: 10%;" src="{{ url_for('static',filename='svgs/logo2.png') }}">  COWATCH。</p>
+             <p style="
+            font-weight: 100;
+            line-height: 100px;
+            font-size: 60px;
+            text-transform: uppercase;">
+
+                 ACADEMIC ASSISTANT FOR UP SLIS IN THE TIME OF COVID-19
+             </p>
+         </div>
+    </a>
+</div>
+</div>
+<div class="section">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="text-center col-md-12 col-lg-8">
+              <h2 class="title">CoWatch <br>gathers relevant information for the UPSLIS Community.</h2>
+              <h4 class="description">
+                    Open-source. Made with Python, Flask, and SQLite3.
+              </h4>
+            </div>
+            <div class="text-center col-md-12 col-lg-8">
+              <a href="/form" class="btn btn-primary btn-round btn-lg" role="button">
+                Sign In
+              </a>
+                <!-- Button directs user to session login page -->
+            </div>
+          </div>
+        </div>
+</div>
+
+
+
+</body>
+
+
+
+{% endblock content %}

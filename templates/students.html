@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% block content %}
+<header class="site-header">
+</header>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="100">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" href=" {{ url_for('hub') }}" rel="tooltip"
+               title="Made for LIS161" data-placement="bottom">
+                <span>COWATCH。</span> online student tracker
+            </a>
+            <a href="/hub" >
+              Return
+            </a>
+          </div>
+
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<img src="{{ url_for('static',filename='BLK/assets/img/path4.png') }}" class="col-lg-11 path">
+<div class="container mt-5">
+<div style="
+            color: #f6f9fc;
+            font-weight: 800;
+            font-size: 30px;
+            text-transform: uppercase;">
+    <div class="row">
+    <div class="col-lg-8">
+    Hi {{ home_name }}! Are you a student? Add yourself!
+
+    <a href="/add" class="btn btn-success btn-fab btn-icon btn-round" role="button">
+               <i class="tim-icons icon-simple-add"></i>
+    </a>
+    </div>
+        <div class="col-lg-4">
+            Check Status
+            <a href="/statuscheck" class="btn btn-primary btn-fab btn-icon btn-round" role="button">
+               <i class="tim-icons icon-zoom-split"></i>
+    </a>
+        </div>
+    </div>
+
+</div>
+
+</div>
+<br>
+<br>
+<body class="profile-page">
+    <div class="wrapper">
+       <div class="table-responsive">
+                      <table class="table tablesorter " id="plain-table">
+                        <thead class=" text-primary">
+                          <tr>
+                            <th class="header">
+                              #
+                            </th>
+                            <th class="header">
+                              Student Name
+                            </th>
+                            <th class="header">
+                              Student Number
+                            </th>
+                              <th class="header">
+                              Able to submit work under current conditions?
+                            </th>
+                              <th class="header">
+                              Actions
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for result in results %}
+                          <tr>
+                            <td>
+                              {{ result[0] }}
+                            </td>
+                            <td>
+                              {{ result[1] }}
+                            </td>
+                              <td>
+                              {{ result[2] }}
+                            </td>
+                              <td>
+                              {{ result[3] }}
+                            </td>
+                              <td>
+                                  <form method="get" action="{{ url_for('sinfo') }}">
+              <button type="submit" value="{{ result[0] }}" name="edit" class="btn btn-warning">Edit</button>
+                                  </form>
+                                  <!-- edit button has value of result[0] or the id, which will be used to send data of the row with that id to /sinfo -->
+                            </td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+    </div>
+</body>
+{% endblock content %}
